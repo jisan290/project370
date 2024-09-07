@@ -4,6 +4,7 @@
 include 'connect.php';
 
 if(isset($_POST['seller'])){
+    $id = unique_id();
     $firstName = $_POST['fname'];
     $lastName = $_POST['lname'];
     $gmail = $_POST['gmail'];
@@ -22,8 +23,8 @@ if(isset($_POST['seller'])){
         echo "email already exits";
      }
      else {
-        $insertQuery = "INSERT INTO user(first_name , last_name , gmail , password , phone , shop_address , nid )
-        VALUES('$firstName' , '$lastName' , '$gmail' , '$pass' , '$phone' , '$address' , '$nid')";
+        $insertQuery = "INSERT INTO user(first_name , last_name , gmail , password , phone , shop_address , nid  , unique_id)
+        VALUES('$firstName' , '$lastName' , '$gmail' , '$pass' , '$phone' , '$address' , '$nid' , '$id')";
         if($conn->query($insertQuery)==TRUE){
             header("location: login.html");
         }
@@ -35,6 +36,7 @@ if(isset($_POST['seller'])){
      }
 
 }elseif(isset($_POST['customer'])){
+    $id = unique_id();
     $name = $_POST['name'];
     $gmail = $_POST['gmail'];
     $pass = $_POST['password'];
@@ -48,8 +50,8 @@ if(isset($_POST['seller'])){
        echo "email already exits";
      }
      else {
-        $insertQuery = "INSERT INTO customer(name , gmail , password , phone , address)
-        VALUES('$name', '$gmail' , '$pass' , '$phone' , '$address')";
+        $insertQuery = "INSERT INTO customer(name , gmail , password , phone , address , unique_id)
+        VALUES('$name', '$gmail' , '$pass' , '$phone' , '$address' , '$id')";
         if($conn->query($insertQuery)== TRUE){
             header("location: login.html");
         }else {
