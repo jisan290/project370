@@ -1,0 +1,166 @@
+body {
+
+
+    min-height: 100vh;
+
+    background-image: url('images/for-seller-doc.jpg');
+    background-repeat: no-repeat;
+
+    background-position: center;
+    background-size: cover;
+}
+
+
+.header {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    background-color: aliceblue;
+    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    backdrop-filter: blur(4px);
+    z-index: 5;
+}
+
+
+.left img {
+    width: 130px;
+    height: auto;
+    padding-left: 10px;
+
+
+}
+
+.left {
+    background: transparent;
+    backdrop-filter: blur(6px);
+    padding-left: 20px;
+}
+
+.middle {
+    width: 310px;
+    border-radius: 40px;
+    background-color: rgb(94, 35, 35);
+    box-shadow: 0px -3px 1px rgba(255, 255, 255, 0.8), 3px 0px 1px rgba(255, 255, 255, 0.5), -3px 0px 1px rgba(255, 255, 255, 0.5);
+
+
+}
+
+.middle p {
+
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    padding: 16px 20px 0px 20px;
+    text-align: center;
+    text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.787);
+
+
+}
+
+
+
+.sidebar {
+    background: transparent;
+    backdrop-filter: blur(7px);
+    position: fixed;
+    top: 68px;
+    left: 0px;
+    width: 220px;
+    bottom: 0px;
+    z-index: 1;
+    flex-direction: column;
+
+
+
+}
+
+.box {
+    background: transparent;
+    height: 50px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    border: 2px solid rgba(56, 7, 7, 0.543);
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.8);
+
+
+
+
+}
+
+.box p {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 22px;
+    color: brown;
+}
+
+.logOUT {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.logOUT a {
+    text-decoration: none;
+    color: brown;
+    font-size: 22px;
+    font-weight: bold;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.logOUT a:hover {
+    color: #0056b3;
+}
+
+.profile-pic {
+
+    width: 170px;
+    height: 170px;
+    overflow: hidden;
+    border-radius: 50%;
+
+
+
+}
+
+
+.profile-pic img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    height: 270px;
+    align-items: center;
+    margin-top: 40px;
+
+    justify-content: space-between;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.profile p {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(185, 132, 85);
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.5),
+        -1px -1px 0 rgba(0, 0, 0, 0.5),
+        1px -1px 0 rgba(0, 0, 0, 0.5),
+        -1px 1px 0 rgba(0, 0, 0, 0.5);
+    padding-bottom: 15px;
+}

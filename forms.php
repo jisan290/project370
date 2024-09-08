@@ -94,7 +94,32 @@ if(isset($_POST['seller'])){
 
 
         if($result1->num_rows>0 && $passResult1->num_rows>0){
-            header("location: sellerhome.html");
+            session_start();
+
+            $fname = "select first_name from user where password = '$pass'";
+            $lname = "select last_name from user where password = '$pass'";
+
+
+            $fR = $conn->query($fname);
+            $lR = $conn->query($lname);
+
+            $r1 = $fR->fetch_assoc();
+            $r2 = $lR->fetch_assoc();
+
+            $firstName = $r1['first_name'];
+            $lastName = $r2['last_name'];
+            
+
+
+
+
+            $_SESSION['fname'] = $firstName;
+            $_SESSION['lname'] = $lastName;
+
+            header("location: sellerhome.php");
+            exit();
+            
+            
 
 
 
