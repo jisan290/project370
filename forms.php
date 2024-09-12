@@ -74,9 +74,6 @@ if(isset($_POST['seller'])){
         $checkPassword_from_user = "SELECT * From user where password = '$pass'";
 
 
-
-
-
         $checkEmail_from_customer = "SELECT * From customer where gmail = '$gmail'";
         $checkPassword_from_customer = "SELECT * From customer where password = '$pass'";
 
@@ -88,9 +85,6 @@ if(isset($_POST['seller'])){
 
         $result2 = $conn->query($checkEmail_from_customer);
         $passResult2 = $conn->query($checkEmail_from_customer);
-
-
-
 
 
         if($result1->num_rows>0 && $passResult1->num_rows>0){
@@ -109,9 +103,6 @@ if(isset($_POST['seller'])){
             $firstName = $r1['first_name'];
             $lastName = $r2['last_name'];
             
-
-
-
 
             $_SESSION['fname'] = $firstName;
             $_SESSION['lname'] = $lastName;

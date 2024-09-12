@@ -14,7 +14,7 @@ $host = "localhost";
 $user = "root";
 $pass = "";
 $db = "login";
-$conn = new mysqli('localhost' , 'root' , 'Jisan1629#' , 'login' , 4306);
+$conn = new mysqli('localhost' , 'root' , '' , 'agrovillage' , 4306);
 
 if($conn->connect_error){
     echo "failed to connect DB".$conn->connect_error;

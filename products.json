@@ -1,0 +1,992 @@
+[
+    {
+        "id": 7,
+        "title": "Watermelons",
+        "description": "Refreshing and sweet watermelons, perfect for hot summer days.",
+        "category": "fruits",
+        "price": 4.99,
+        "discountPercentage": 7.0,
+        "rating": 4.8,
+        "stock": 50,
+        "tags": [
+            "fruits",
+            "fresh"
+        ],
+        "brand": "MelonMagic",
+        "sku": "MELMAG100",
+        "weight": 5.0,
+        "dimensions": {
+            "width": 20.0,
+            "height": 15.0,
+            "depth": 15.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 2-5 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Best watermelon I've had!",
+                "date": "2024-09-06T09:00:00Z",
+                "reviewerName": "Tom Black",
+                "reviewerEmail": "tom.black@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/RCTzDm9/7.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 8,
+        "title": "Apples",
+        "description": "Delicious and crispy apples sourced from the best orchards.",
+        "category": "fruits",
+        "price": 2.50,
+        "discountPercentage": 5.0,
+        "rating": 4.9,
+        "stock": 120,
+        "tags": [
+            "fruits",
+            "organic"
+        ],
+        "brand": "OrchardDelight",
+        "sku": "ODAPP567",
+        "weight": 1.0,
+        "dimensions": {
+            "width": 10.0,
+            "height": 10.0,
+            "depth": 10.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 3 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "So fresh and crunchy!",
+                "date": "2024-09-05T11:30:00Z",
+                "reviewerName": "John White",
+                "reviewerEmail": "john.white@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/KmZpFL8/8.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 9,
+        "title": "Baby Spinach Leaves",
+        "description": "Tender and fresh baby spinach leaves, perfect for salads and smoothies.",
+        "category": "vegetables",
+        "price": 3.00,
+        "discountPercentage": 10.0,
+        "rating": 4.7,
+        "stock": 140,
+        "tags": [
+            "vegetables",
+            "leafy greens"
+        ],
+        "brand": "GreenField",
+        "sku": "GFSPL122",
+        "weight": 0.6,
+        "dimensions": {
+            "width": 10.0,
+            "height": 10.0,
+            "depth": 10.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 1-3 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 4,
+                "comment": "Fresh but a bit small in size.",
+                "date": "2024-09-02T13:00:00Z",
+                "reviewerName": "Jessica Rose",
+                "reviewerEmail": "jessica.rose@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/s2YxpC7/9.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 10,
+        "title": "Red Grapes",
+        "description": "Juicy, sweet red grapes perfect for snacking and adding to salads.",
+        "category": "fruits",
+        "price": 3.75,
+        "discountPercentage": 6.0,
+        "rating": 4.6,
+        "stock": 80,
+        "tags": [
+            "fruits",
+            "fresh"
+        ],
+        "brand": "VineYard",
+        "sku": "VGGR456",
+        "weight": 0.8,
+        "dimensions": {
+            "width": 10.0,
+            "height": 5.0,
+            "depth": 3.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 3-5 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Super sweet and fresh!",
+                "date": "2024-09-04T08:00:00Z",
+                "reviewerName": "Alex Green",
+                "reviewerEmail": "alex.green@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/98rbsGp/download.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 11,
+        "title": "Cucumbers",
+        "description": "Crisp, organic cucumbers ideal for salads and snacking.",
+        "category": "vegetables",
+        "price": 1.50,
+        "discountPercentage": 4.0,
+        "rating": 4.8,
+        "stock": 90,
+        "tags": [
+            "vegetables",
+            "organic"
+        ],
+        "brand": "GreenLeaf",
+        "sku": "GLCUC789",
+        "weight": 1.2,
+        "dimensions": {
+            "width": 10.0,
+            "height": 3.0,
+            "depth": 3.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 2-4 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Super fresh cucumbers!",
+                "date": "2024-09-01T15:00:00Z",
+                "reviewerName": "Peter Brown",
+                "reviewerEmail": "peter.brown@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/PGf7QVn/download.webp"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 12,
+        "title": "Blueberries",
+        "description": "Sweet and tart blueberries, perfect for baking or snacking.",
+        "category": "fruits",
+        "price": 4.20,
+        "discountPercentage": 12.0,
+        "rating": 4.9,
+        "stock": 60,
+        "tags": [
+            "fruits",
+            "berries"
+        ],
+        "brand": "BerryFarm",
+        "sku": "BFBERR123",
+        "weight": 0.5,
+        "dimensions": {
+            "width": 8.0,
+            "height": 2.0,
+            "depth": 2.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 1-2 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "The best blueberries ever!",
+                "date": "2024-09-06T10:30:00Z",
+                "reviewerName": "Michael Grey",
+                "reviewerEmail": "michael.grey@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/Qr12q0J/download-1.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 13,
+        "title": "Zucchini",
+        "description": "Fresh zucchini perfect for grilling, baking, or adding to stir-fries.",
+        "category": "vegetables",
+        "price": 2.30,
+        "discountPercentage": 5.0,
+        "rating": 4.7,
+        "stock": 85,
+        "tags": [
+            "vegetables",
+            "fresh"
+        ],
+        "brand": "VeggieDelight",
+        "sku": "VDZUC124",
+        "weight": 1.1,
+        "dimensions": {
+            "width": 12.0,
+            "height": 3.0,
+            "depth": 3.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 2-4 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 4,
+                "comment": "Good quality, but small.",
+                "date": "2024-09-05T17:00:00Z",
+                "reviewerName": "Sophia White",
+                "reviewerEmail": "sophia.white@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/sWnT6fy/download-2.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 14,
+        "title": "Peaches",
+        "description": "Juicy, ripe peaches perfect for eating fresh or making desserts.",
+        "category": "fruits",
+        "price": 3.25,
+        "discountPercentage": 10.0,
+        "rating": 4.8,
+        "stock": 70,
+        "tags": [
+            "fruits",
+            "organic"
+        ],
+        "brand": "PeachPerfect",
+        "sku": "PPPEACH89",
+        "weight": 0.6,
+        "dimensions": {
+            "width": 6.0,
+            "height": 6.0,
+            "depth": 6.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 3 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "So sweet and delicious!",
+                "date": "2024-09-03T16:00:00Z",
+                "reviewerName": "Emily Blue",
+                "reviewerEmail": "emily.blue@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/tYzfQCd/images-1.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 15,
+        "title": "Broccoli",
+        "description": "Healthy and fresh broccoli, ideal for stir-fries, steaming, or salads.",
+        "category": "vegetables",
+        "price": 2.10,
+        "discountPercentage": 8.0,
+        "rating": 4.6,
+        "stock": 95,
+        "tags": [
+            "vegetables",
+            "fresh"
+        ],
+        "brand": "VeggieFresh",
+        "sku": "VFBR123",
+        "weight": 0.7,
+        "dimensions": {
+            "width": 7.0,
+            "height": 5.0,
+            "depth": 5.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 2-3 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Great for stir-fries!",
+                "date": "2024-09-04T14:00:00Z",
+                "reviewerName": "Linda Green",
+                "reviewerEmail": "linda.green@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/BZ7QXS5/images-2.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 16,
+        "title": "Bananas",
+        "description": "Fresh organic bananas, perfect for snacking or smoothies.",
+        "category": "fruits",
+        "price": 1.20,
+        "discountPercentage": 5.0,
+        "rating": 4.8,
+        "stock": 200,
+        "tags": [
+            "fruits",
+            "organic"
+        ],
+        "brand": "TropicalFruits",
+        "sku": "TFBANANA01",
+        "weight": 1.3,
+        "dimensions": {
+            "width": 12.0,
+            "height": 3.0,
+            "depth": 3.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 1-2 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Always fresh and tasty!",
+                "date": "2024-09-06T12:00:00Z",
+                "reviewerName": "Sarah Red",
+                "reviewerEmail": "sarah.red@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/kmrxJgR/images-3.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 1,
+        "title": "Carrots",
+        "description": "These fresh organic carrots are sourced from sustainable farms. Perfect for salads, snacks, or cooking.",
+        "category": "vegetables",
+        "price": 1.99,
+        "discountPercentage": 10.00,
+        "rating": 4.8,
+        "stock": 150,
+        "tags": [
+            "vegetables",
+            "organic"
+        ],
+        "brand": "FarmFresh",
+        "sku": "FFCAR123",
+        "weight": 1.5,
+        "dimensions": {
+            "width": 15.0,
+            "height": 5.0,
+            "depth": 3.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 3-5 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Super fresh and tasty!",
+                "date": "2024-09-01T08:30:00Z",
+                "reviewerName": "Sarah Green",
+                "reviewerEmail": "sarah.green@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/DMHLRkB/images-4.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 2,
+        "title": "Strawberries",
+        "description": "Sweet and juicy strawberries, perfect for desserts or eating fresh.",
+        "category": "fruits",
+        "price": 3.99,
+        "discountPercentage": 15.00,
+        "rating": 4.6,
+        "stock": 75,
+        "tags": [
+            "fruits",
+            "berries"
+        ],
+        "brand": "BerryBest",
+        "sku": "BBERR45",
+        "weight": 0.5,
+        "dimensions": {
+            "width": 10.0,
+            "height": 4.0,
+            "depth": 5.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 2 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "So fresh and delicious!",
+                "date": "2024-09-03T12:45:00Z",
+                "reviewerName": "Emma Red",
+                "reviewerEmail": "emma.red@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-20T10:00:00Z",
+            "updatedAt": "2024-09-03T14:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/80J6XYS/images-5.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/fruits/strawberries/thumbnail.png"
+    },
+    {
+        "id": 3,
+        "title": "Spinach",
+        "description": "Fresh, organic spinach leaves, perfect for salads, smoothies, and cooking.",
+        "category": "vegetables",
+        "price": 2.49,
+        "discountPercentage": 5.0,
+        "rating": 4.9,
+        "stock": 200,
+        "tags": [
+            "vegetables",
+            "organic",
+            "leafy greens"
+        ],
+        "brand": "LeafyGreen",
+        "sku": "LGRSPN5",
+        "weight": 0.8,
+        "dimensions": {
+            "width": 12.0,
+            "height": 3.0,
+            "depth": 6.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 1-2 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Extremely fresh!",
+                "date": "2024-08-29T11:00:00Z",
+                "reviewerName": "Lily White",
+                "reviewerEmail": "lily.white@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-07-30T09:00:00Z",
+            "updatedAt": "2024-09-01T12:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/5GLS5yn/spinach-1296x728-header.webp"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/spinach/thumbnail.png"
+    },
+    {
+        "id": 4,
+        "title": "Ripe Avocados",
+        "description": "Perfectly ripe avocados, great for guacamole, salads, or spreads.",
+        "category": "fruits",
+        "price": 1.50,
+        "discountPercentage": 12.0,
+        "rating": 4.7,
+        "stock": 90,
+        "tags": [
+            "fruits",
+            "organic"
+        ],
+        "brand": "GreenGold",
+        "sku": "GRAVO123",
+        "weight": 1.0,
+        "dimensions": {
+            "width": 12.0,
+            "height": 5.0,
+            "depth": 5.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 1-2 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Really creamy and fresh!",
+                "date": "2024-09-05T15:00:00Z",
+                "reviewerName": "Lara Grey",
+                "reviewerEmail": "lara.grey@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-15T10:00:00Z",
+            "updatedAt": "2024-09-03T13:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/444b9nc/Avocado-fruits.webp"
+        ],
+        "thumbnail": "https://example.com/images/products/fruits/avocados/thumbnail.png"
+    },
+    {
+        "id": 5,
+        "title": "Golden Bananas",
+        "description": "Sweet, ripe bananas perfect for snacking or baking.",
+        "category": "fruits",
+        "price": 0.99,
+        "discountPercentage": 5.0,
+        "rating": 4.9,
+        "stock": 250,
+        "tags": [
+            "fruits",
+            "organic"
+        ],
+        "brand": "BananaCo",
+        "sku": "BANCO111",
+        "weight": 1.2,
+        "dimensions": {
+            "width": 14.0,
+            "height": 4.0,
+            "depth": 6.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 1-3 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Tastes amazing!",
+                "date": "2024-08-28T10:00:00Z",
+                "reviewerName": "Chris Blue",
+                "reviewerEmail": "chris.blue@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-12T08:00:00Z",
+            "updatedAt": "2024-09-03T12:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/N1sz0SY/images-6.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/fruits/bananas/thumbnail.png"
+    },
+    {
+        "id": 6,
+        "title": "Green Beans",
+        "description": "Fresh and crispy green beans perfect for cooking or snacking.",
+        "category": "vegetables",
+        "price": 2.20,
+        "discountPercentage": 8.0,
+        "rating": 4.5,
+        "stock": 180,
+        "tags": [
+            "vegetables",
+            "fresh"
+        ],
+        "brand": "VeggieFresh",
+        "sku": "VFGB789",
+        "weight": 0.7,
+        "dimensions": {
+            "width": 8.0,
+            "height": 2.0,
+            "depth": 2.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 2-4 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 4,
+                "comment": "Nice and fresh.",
+                "date": "2024-08-30T14:20:00Z",
+                "reviewerName": "Sara Brown",
+                "reviewerEmail": "sara.brown@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/gM846H7/244868-sauteed-garden-fresh-green-beans-DDMFS-4x3-a1c5968476ef476689153529d668e2dc.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 17,
+        "title": "Sweet Corn",
+        "description": "Fresh sweet corn perfect for boiling, grilling, or adding to salads.",
+        "category": "vegetables",
+        "price": 2.50,
+        "discountPercentage": 6.0,
+        "rating": 4.7,
+        "stock": 100,
+        "tags": [
+            "vegetables",
+            "organic"
+        ],
+        "brand": "FarmFresh",
+        "sku": "FFCOR789",
+        "weight": 1.0,
+        "dimensions": {
+            "width": 15.0,
+            "height": 5.0,
+            "depth": 5.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 2-3 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Super fresh and sweet!",
+                "date": "2024-09-02T14:00:00Z",
+                "reviewerName": "Alice Blue",
+                "reviewerEmail": "alice.blue@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/7QS5Tg2/Ears-corn.webp"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 18,
+        "title": "Mango",
+        "description": "Creamy and ripe mango, perfect for guacamole, salads, or toast.",
+        "category": "fruits",
+        "price": 3.99,
+        "discountPercentage": 9.0,
+        "rating": 4.9,
+        "stock": 75,
+        "tags": [
+            "fruits",
+            "organic"
+        ],
+        "brand": "TropicalHarvest",
+        "sku": "THAVO256",
+        "weight": 0.4,
+        "dimensions": {
+            "width": 7.0,
+            "height": 4.0,
+            "depth": 4.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 2-4 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Perfect avocados every time!",
+                "date": "2024-09-03T09:30:00Z",
+                "reviewerName": "David Gold",
+                "reviewerEmail": "david.gold@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/ZBPyKBb/images-7.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 19,
+        "title": "Apple",
+        "description": "Crunchy and sweet organic apple, perfect for snacking or cooking.",
+        "category": "vegetables",
+        "price": 2.20,
+        "discountPercentage": 5.0,
+        "rating": 4.8,
+        "stock": 90,
+        "tags": [
+            "vegetables",
+            "organic"
+        ],
+        "brand": "HealthyHarvest",
+        "sku": "HHCAR123",
+        "weight": 1.5,
+        "dimensions": {
+            "width": 10.0,
+            "height": 4.0,
+            "depth": 4.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 1-3 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Great taste and very fresh!",
+                "date": "2024-09-02T18:00:00Z",
+                "reviewerName": "Nancy White",
+                "reviewerEmail": "nancy.white@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/PtK8MGh/download-4.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 20,
+        "title": "Lichi",
+        "description": "Sweet and juicy Lichi perfect for desserts or snacking.",
+        "category": "fruits",
+        "price": 5.50,
+        "discountPercentage": 12.0,
+        "rating": 4.9,
+        "stock": 50,
+        "tags": [
+            "fruits",
+            "berries"
+        ],
+        "brand": "BerryBloom",
+        "sku": "BBSTRW345",
+        "weight": 0.5,
+        "dimensions": {
+            "width": 8.0,
+            "height": 3.0,
+            "depth": 2.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 1-2 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Very sweet and fresh berries!",
+                "date": "2024-09-01T11:00:00Z",
+                "reviewerName": "Laura Green",
+                "reviewerEmail": "laura.green@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/Wc627X6/download-5.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 21,
+        "title": "Green Mangoes",
+        "description": "Ripe and juicy mangoes, perfect for making smoothies or eating fresh.",
+        "category": "fruits",
+        "price": 6.00,
+        "discountPercentage": 7.0,
+        "rating": 4.9,
+        "stock": 70,
+        "tags": [
+            "fruits",
+            "tropical"
+        ],
+        "brand": "TropiFruits",
+        "sku": "TFMANG789",
+        "weight": 1.2,
+        "dimensions": {
+            "width": 8.0,
+            "height": 6.0,
+            "depth": 6.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 3-5 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "The best mangoes I've ever had!",
+                "date": "2024-09-04T15:00:00Z",
+                "reviewerName": "Eric Black",
+                "reviewerEmail": "eric.black@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/4jDNFNL/download-6.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 22,
+        "title": "Green onion",
+        "description": "Fresh and crisp green beans, perfect for stir-frying, steaming, or adding to casseroles.",
+        "category": "vegetables",
+        "price": 1.80,
+        "discountPercentage": 5.0,
+        "rating": 4.6,
+        "stock": 110,
+        "tags": [
+            "vegetables",
+            "organic"
+        ],
+        "brand": "FarmFresh",
+        "sku": "FFGB123",
+        "weight": 0.6,
+        "dimensions": {
+            "width": 12.0,
+            "height": 2.0,
+            "depth": 2.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships in 1-2 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 4,
+                "comment": "Fresh but could be crisper.",
+                "date": "2024-09-03T12:00:00Z",
+                "reviewerName": "George White",
+                "reviewerEmail": "george.white@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/N9jT0Kr/Simply-Recipes-The-Best-Way-To-Store-Green-Onions-METHOD-1-A-e625d1c233384353b53e49615f93c485.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    },
+    {
+        "id": 23,
+        "title": "Sweet Potatoes",
+        "description": "Organic sweet potatoes, perfect for roasting, baking, or making fries.",
+        "category": "vegetables",
+        "price": 3.50,
+        "discountPercentage": 8.0,
+        "rating": 4.7,
+        "stock": 95,
+        "tags": [
+            "vegetables",
+            "organic"
+        ],
+        "brand": "RootFarm",
+        "sku": "RFSWPOT89",
+        "weight": 2.0,
+        "dimensions": {
+            "width": 12.0,
+            "height": 8.0,
+            "depth": 8.0
+        },
+        "warrantyInformation": "N/A",
+        "shippingInformation": "Ships within 2-3 days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+            {
+                "rating": 5,
+                "comment": "Great for making fries!",
+                "date": "2024-09-02T19:00:00Z",
+                "reviewerName": "Jessica Brown",
+                "reviewerEmail": "jessica.brown@example.com"
+            }
+        ],
+        "returnPolicy": "No return policy for fresh produce",
+        "meta": {
+            "createdAt": "2024-08-01T08:00:00Z",
+            "updatedAt": "2024-09-01T09:00:00Z"
+        },
+        "images": [
+            "https://i.ibb.co.com/2WFkfT3/download-7.jpg"
+        ],
+        "thumbnail": "https://example.com/images/products/vegetables/carrots/thumbnail.png"
+    }
+]
