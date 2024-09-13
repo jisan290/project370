@@ -1,13 +1,23 @@
+@font-face {
+    font-family: "IBM Plex Sans Roman";
+    src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/85648/IBMPlexSansVar-Roman.ttf");
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
 
 
     min-height: 100vh;
 
-    background-image: url('images/for-seller-doc.jpg');
+    background-image: url('images/download9.avif');
     background-repeat: no-repeat;
 
     background-position: center;
     background-size: cover;
+    font-family: "IBM Plex Sans Roman", Times;
 }
 
 
@@ -21,8 +31,9 @@ body {
     justify-content: space-between;
     background-color: aliceblue;
     box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(0, 0, 0, 0.1);
-    background: transparent;
-    backdrop-filter: blur(4px);
+
+    background-color: rgb(86, 108, 181);
+
     z-index: 5;
 }
 
@@ -44,8 +55,9 @@ body {
 .middle {
     width: 310px;
     border-radius: 40px;
-    background-color: rgb(94, 35, 35);
+    background-color: rgba(51, 35, 94, 0.56);
     box-shadow: 0px -3px 1px rgba(255, 255, 255, 0.8), 3px 0px 1px rgba(255, 255, 255, 0.5), -3px 0px 1px rgba(255, 255, 255, 0.5);
+    user-select: none;
 
 
 }
@@ -55,13 +67,68 @@ body {
     font-size: 22px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(255, 255, 255);
+    color: rgb(9, 9, 0);
     padding: 16px 20px 0px 20px;
     text-align: center;
-    text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.787);
+    text-shadow:
+        1px 1px 3px rgba(247, 245, 245, 0.5),
+        -1px -1px 3px rgba(255, 255, 255, 0.5),
+        1px -1px 3px rgba(255, 251, 251, 0.5),
+        -1px 1px 3px rgba(255, 255, 255, 0.5);
 
 
 }
+
+.explore-button {
+    margin-right: 20px;
+    color: white;
+    border: 3px solid white;
+}
+
+.explore-button:hover {
+    background-color: white;
+    color: rgb(86, 108, 181);
+    box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5),
+        -1px -1px 5px rgba(255, 255, 255, 0.5),
+        1px -1px 5px rgba(255, 255, 255, 0.5),
+        -1px 1px 5px rgba(255, 255, 255, 0.5);
+
+}
+
+h1 {
+    font-weight: 100;
+    font-size: 10vw;
+    line-height: 10vw;
+    font-variation-settings: 'wght' 100, 'wdth' 85;
+}
+
+h1 .char {
+    --delay: calc((var(--char-index) + 1) * 400ms);
+    animation: breathe 4000ms infinite both;
+    animation-delay: var(--delay);
+}
+
+h1:hover span {
+    animation-play-state: paused;
+}
+
+@keyframes breathe {
+    0% {
+        font-variation-settings: 'wght' 100, 'wdth' 85;
+        font-size: 10vw;
+    }
+
+    60% {
+        font-variation-settings: 'wght' 700, 'wdth' 100;
+        font-size: 11vw;
+    }
+
+    100% {
+        font-variation-settings: 'wght' 100, 'wdth' 85;
+        font-size: 10vw;
+    }
+}
+
 
 
 
@@ -72,7 +139,7 @@ body {
     top: 68px;
     left: 0px;
     width: 220px;
-    bottom: 0px;
+
     z-index: 1;
     flex-direction: column;
 
@@ -89,7 +156,6 @@ body {
 
 }
 
-/* Media query for mobile devices */
 @media (min-width: 697px) and (1079px) {
     .sidebar {
         width: 100%;
@@ -103,16 +169,16 @@ body {
         bottom: auto;
 
         transform: translateX(-100%);
-        /* Initially hidden off-screen for slide-in effect */
+
     }
 
     .sidebar.open {
         transform: translateX(0);
-        /* Slide-in effect when the sidebar is open */
+
     }
 }
 
-/* Media query for very small devices */
+
 @media (max-width: 696px) {
     .sidebar {
         transform: translateX(-100%);
@@ -138,6 +204,12 @@ body {
 
 }
 
+.logOUT {
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.8);
+
+
+}
+
 
 .box p {
     text-align: center;
@@ -145,6 +217,7 @@ body {
     font-size: 22px;
     color: rgb(241, 241, 241);
     font-weight: bold;
+    user-select: none;
     text-shadow:
         1px 1px 0 rgba(0, 0, 0, 0.5),
         -1px -1px 0 rgba(0, 0, 0, 0.5),
@@ -153,8 +226,8 @@ body {
 }
 
 .box p:hover {
-    font-size: 23px;
-    color: rgb(93, 129, 161);
+    font-size: 25px;
+    color: rgb(2, 59, 110);
     text-shadow:
         1px 1px 2px rgba(255, 255, 255, 0.5),
         -1px -1px 2px rgba(255, 255, 255, 0.5),
@@ -175,15 +248,25 @@ body {
 
 .logOUT a {
     text-decoration: none;
-    color: brown;
+    color: rgb(154, 14, 14);
     font-size: 22px;
     font-weight: bold;
     transition: color 0.3s;
     cursor: pointer;
+    text-shadow:
+        1px 1px 0 rgba(255, 251, 251, 0.5),
+        -1px -1px 0 rgba(255, 255, 255, 0.5),
+        1px -1px 0 rgba(254, 254, 254, 0.5),
+        -1px 1px 0 rgba(255, 253, 253, 0.5);
 }
 
 .logOUT a:hover {
-    color: #0056b3;
+    font-size: 25px;
+    text-shadow:
+        1px 1px 2px rgba(255, 255, 255, 0.5),
+        -1px -1px 2px rgba(255, 255, 255, 0.5),
+        1px -1px 2px rgba(255, 255, 255, 0.5),
+        -1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .profile-pic {
@@ -212,9 +295,10 @@ body {
     display: flex;
     flex-direction: column;
     width: 220px;
-    height: 270px;
+    height: 290px;
     align-items: center;
-    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 10px;
 
     justify-content: space-between;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
@@ -238,7 +322,7 @@ body {
         -1px -1px 0 rgba(0, 0, 0, 0.5),
         1px -1px 0 rgba(0, 0, 0, 0.5),
         -1px 1px 0 rgba(0, 0, 0, 0.5);
-    padding-bottom: 15px;
+
 }
 
 
@@ -263,11 +347,29 @@ body {
 
 }
 
+@media (min-width:766px) and (max-width: 926px) {
+    .main_container {
+        left: 245px;
+        right: 20px;
+    }
+
+
+}
+
+@media (min-width:697px) and (max-width: 925px) {
+    .main_container {
+        left: 240px;
+        right: 20px;
+    }
+
+}
+
 @media (min-width:9px) and (max-width: 696px) {
 
 
     .main_container {
-        left: 55px;
+        left: 35px;
+        right: 35px;
     }
 
     .container {
@@ -325,6 +427,14 @@ body {
     border-radius: 44px;
 }
 
+.lastdiv1 {
+    border-radius: 0 0 0 44px;
+}
+
+.lastdiv2 {
+    border-radius: 0 0 44px 0;
+}
+
 .info-div {
     display: flex;
     background-color: rgba(239, 239, 239, 0.29);
@@ -343,4 +453,151 @@ body {
         -1px -1px 4px rgba(1, 1, 1, 0.5),
         1px -1px 4px rgba(0, 0, 0, 0.5),
         -1px 1px 4px rgba(1, 1, 0, 0.5);
+
+}
+
+.info-div .values {
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.add_products_form {
+    display: grid;
+    position: fixed;
+
+    top: 110px;
+    bottom: 60px;
+    border-radius: 7px;
+    padding: 5px 5px 00px 5px;
+
+
+    background: transparent;
+    backdrop-filter: blur(17px);
+    border: 2px solid rgb(176, 165, 138);
+    box-shadow:
+        1px 1px 7px rgba(0, 0, 0, 0.5),
+        -1px -1px 7px rgba(1, 1, 1, 0.5),
+        1px -1px 7px rgba(0, 0, 0, 0.5),
+        -1px 1px 7px rgba(1, 1, 0, 0.5);
+
+
+
+}
+
+.grid {
+    margin: 0 0;
+    padding: 0 0;
+}
+
+.title {
+    margin-bottom: 0px;
+}
+
+
+
+.priceandcategory {
+    display: flex;
+    justify-content: space-between;
+}
+
+.priceandcategory .cate {
+    width: 170px;
+    margin-right: 30px;
+}
+
+.priceandcategory .cate {
+    height: 48px;
+}
+
+.priceandcategory .price {
+    height: 48px;
+    margin-left: 30px;
+}
+
+.discount {
+    padding-right: 150px;
+}
+
+.brandandweight {
+    display: flex;
+
+    justify-content: space-between;
+
+
+}
+
+.brand {
+    margin-right: 50px;
+}
+
+
+
+
+
+.submit-button-box {
+    width: 150px;
+}
+
+.submit-button {
+    background: transparent;
+    border: 3px solid green;
+    margin-left: 5px;
+}
+
+.submit-button:hover {
+    background-color: green;
+    border: 3px solid rgb(109, 152, 39);
+
+}
+
+.fileandsubmit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Description {
+    color: rgb(168, 46, 70);
+    font-weight: bold;
+    text-shadow:
+        1px 1px 4px rgba(247, 245, 245, 0.5),
+        -1px -1px 4px rgba(255, 255, 255, 0.5),
+        1px -1px 4px rgba(255, 251, 251, 0.5),
+        -1px 1px 4px rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width:1080px) {
+    .add_products_form {
+        left: 350px;
+        right: 50px;
+    }
+
+}
+
+@media (min-width:472px) and (max-width: 696px) {
+
+
+    .add_products_form {
+        left: 35px;
+        right: 35px;
+    }
+}
+
+@media (min-width:697px) and (max-width: 1079px) {
+
+
+    .add_products_form {
+        left: 280px;
+        right: 50px;
+    }
+
+}
+
+@media (min-width:10px) and (max-width: 472px) {
+
+
+    .add_products_form {
+        top: 160px;
+        left: 35px;
+        right: 35px;
+    }
 }

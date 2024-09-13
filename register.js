@@ -13,18 +13,11 @@ function forCustomer() {
     customerbox.style.display = "block";
 
 
-
-
 };
-
 
 function forSeller() {
 
     sellerbox.style.display = "block";
     customerbox.style.display = "none";
-
-
-
-
 
 };
