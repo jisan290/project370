@@ -1,7 +1,58 @@
 <?php
+    include 'connect.php';
     session_start();
     $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : '';
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : '';
+    $supplier_id = isset($_SESSION['supplier_id']) ? $_SESSION['supplier_id'] : '';
+
+
+    $sql = "SELECT COUNT(*) AS product_count FROM products WHERE supplier_id = ?";
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt) {
+
+        $stmt->bind_param("s", $supplier_id); 
+        $stmt->execute();
+        
+    
+        $result = $stmt->get_result();
+        
+
+        $product_count = '0'; 
+        if ($row = $result->fetch_assoc()) {
+            $product_count = (string) $row['product_count']; 
+        }
+
+        $stmt->close();
+    } else {
+
+        echo "Failed to prepare the SQL statement.";
+    }
+
+    $sql_order = "SELECT COUNT(*) AS order_count
+        FROM order_table o
+        JOIN products p ON o.product_id = p.product_id
+        WHERE p.supplier_id = ?";
+    $stmt_order = $conn->prepare($sql_order);
+
+    if ($stmt_order) {
+      
+        $stmt_order->bind_param("s", $supplier_id); 
+        $stmt_order->execute();
+        $result = $stmt_order->get_result();
+
+
+        $order_count = '0'; 
+        if ($row = $result->fetch_assoc()) {
+            $order_count = $row['order_count'];
+        }
+        
+        $stmt_order->close();
+    } else {
+        echo "Failed to prepare the SQL statement.";
+    }
+       
+$conn->close();
 
 ?>
 
@@ -22,16 +73,7 @@
 
 <body>
 
-    <!-- <div class="header">
-        <div class="left">
-            <img src="images/logo-removebg-preview.png">
-        </div>
-        <div class="right">
 
-        </div>
-
-
-    </div> -->
 
     <div class="header">
         <div class="left">
@@ -59,6 +101,8 @@
                 <p>
                     <?php echo htmlspecialchars($fname); ?>
                     <?php echo htmlspecialchars($lname); ?>
+
+
                 </p>
 
 
@@ -71,7 +115,7 @@
             <p id="glowD" onclick="toDashboard()">dashboard</p>
         </div>
         <div class=" add_products box">
-            <p  id = "glowp" onclick="toAddproducts()">Add products</p>
+            <p id="glowp" onclick="toAddproducts()">Add products</p>
         </div>
         <div class="view_products box">
             <p>View products</p>
@@ -89,10 +133,14 @@
 
             <div class="row">
                 <div class="col-md-8 info-div">products currently available <span>
-                        <div class="values pa"> [6]</div>
+                        <div class="values pa"> [
+                            <?php echo htmlspecialchars($product_count); ?>]
+                        </div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">orders <span>
-                        <div class="values or">[4]</div>
+                        <div class="values or">[
+                            <?php echo htmlspecialchars($order_count); ?>]
+                        </div>
                     </span></div>
             </div>
 
@@ -149,10 +197,18 @@
                         aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
-            <div class="input-group mb-3 discount grid">
-                <span class="input-group-text">discount?</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                <span class="input-group-text">.00</span>
+            <div class="discountandtags grid">
+                <div class="input-group mb-3 discount">
+                    <span class="input-group-text discountspan">discount?</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text">.00</span>
+                </div>
+                <div class="input-group mb-3 tags">
+                    <span class="input-group-text" id="inputGroup-sizing-default">tags</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
+                </div>
+
             </div>
             <div class="brandandweight grid">
                 <div class="input-group mb-3 brand">
@@ -162,7 +218,7 @@
                 </div>
 
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 weight">
                     <span class="input-group-text" id="inputGroup-sizing-default">Weight</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default">

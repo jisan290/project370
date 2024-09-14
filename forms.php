@@ -11,20 +11,29 @@ if(isset($_POST['seller'])){
     $pass = $_POST['password'];
    
     $phone = $_POST['phone'];
+
     $address = $_POST['saddress'];
+    $parts = explode('-', $address);
+
+
+ 
+    $city = $parts[0];
+    $road = $parts[1];
+    $house = $parts[2];
+    
     $nid = $_POST['nid'];
 
     #-----
 
 
-     $checkEmail = "SELECT * From user where gmail = '$gmail'";
+     $checkEmail = "SELECT * From supplier where gmail = '$gmail'";
      $result = $conn->query($checkEmail);
      if($result->num_rows>0){
         echo "email already exits";
      }
      else {
-        $insertQuery = "INSERT INTO user(first_name , last_name , gmail , password , phone , shop_address , nid  , unique_id)
-        VALUES('$firstName' , '$lastName' , '$gmail' , '$pass' , '$phone' , '$address' , '$nid' , '$id')";
+        $insertQuery = "INSERT INTO supplier(first_name , last_name , gmail , password ,city , road , house, phone ,  nid  , unique_id)
+        VALUES('$firstName' , '$lastName' , '$gmail' , '$pass' ,'$city','$road','$house', '$phone' ,  '$nid' , '$id')";
         if($conn->query($insertQuery)==TRUE){
             header("location: login.html");
         }
@@ -36,13 +45,19 @@ if(isset($_POST['seller'])){
      }
 
 }elseif(isset($_POST['customer'])){
-    $id = unique_id();
+    $uniqueID = unique_id();
     $name = $_POST['name'];
     $gmail = $_POST['gmail'];
     $pass = $_POST['password'];
    
     $phone = $_POST['phone'];
     $address = $_POST['saddress'];
+    $parts = explode('-', $address);
+
+     
+    $city = $parts[0];
+    $road = $parts[1];
+    $house = $parts[2];
 
      $checkEmail = "SELECT * From customer where gmail = '$gmail'";
      $result = $conn->query($checkEmail);
@@ -50,8 +65,8 @@ if(isset($_POST['seller'])){
        echo "email already exits";
      }
      else {
-        $insertQuery = "INSERT INTO customer(name , gmail , password , phone , address , unique_id)
-        VALUES('$name', '$gmail' , '$pass' , '$phone' , '$address' , '$id')";
+        $insertQuery = "INSERT INTO customer(name , gmail , password , phone , city , road , house, unique_id)
+        VALUES('$name', '$gmail' , '$pass' , '$phone' ,'$city','$road' , '$house', '$uniqueID')";
         if($conn->query($insertQuery)== TRUE){
             header("location: login.html");
         }else {
@@ -70,16 +85,16 @@ if(isset($_POST['seller'])){
      }else {
         
 
-        $checkEmail_from_user = "SELECT * From user where gmail = '$gmail'";
-        $checkPassword_from_user = "SELECT * From user where password = '$pass'";
+        $checkEmail_from_supplier = "SELECT * From supplier where gmail = '$gmail'";
+        $checkPassword_from_supplier = "SELECT * From supplier where password = '$pass'";
 
 
         $checkEmail_from_customer = "SELECT * From customer where gmail = '$gmail'";
         $checkPassword_from_customer = "SELECT * From customer where password = '$pass'";
 
 
-        $result1 = $conn->query($checkEmail_from_user);
-        $passResult1 = $conn->query($checkPassword_from_user);
+        $result1 = $conn->query($checkEmail_from_supplier);
+        $passResult1 = $conn->query($checkPassword_from_supplier);
 
 
 
@@ -90,8 +105,15 @@ if(isset($_POST['seller'])){
         if($result1->num_rows>0 && $passResult1->num_rows>0){
             session_start();
 
-            $fname = "select first_name from user where password = '$pass'";
-            $lname = "select last_name from user where password = '$pass'";
+            $fname = "select first_name from supplier where password = '$pass'";
+            $lname = "select last_name from supplier where password = '$pass'";
+
+            $selID = "select unique_id from supplier where gmail = '$gmail'";
+            $stmt = $conn->query($selID);
+            $rs = $stmt->fetch_assoc();
+            $resultID = $rs['unique_id'];
+            
+
 
 
             $fR = $conn->query($fname);
@@ -102,10 +124,12 @@ if(isset($_POST['seller'])){
 
             $firstName = $r1['first_name'];
             $lastName = $r2['last_name'];
+
             
 
             $_SESSION['fname'] = $firstName;
             $_SESSION['lname'] = $lastName;
+            $_SESSION['supplier_id'] = $resultID;
 
             header("location: sellerhome.php");
             exit();

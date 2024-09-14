@@ -514,8 +514,54 @@ h1:hover span {
     margin-left: 30px;
 }
 
+.discountandtags {
+    display: flex;
+    justify-content: space-between;
+}
+
 .discount {
-    padding-right: 150px;
+
+    height: 48px;
+}
+
+
+
+.tags {
+    margin-left: 30px;
+
+    height: 48px;
+}
+
+@media (min-width:697px) and (max-width:794px) {
+    .discount .discountspan {
+        padding-left: 4px;
+        padding-right: 3px;
+        width: 87px;
+    }
+
+    .tags {
+
+        margin-left: 0px;
+
+    }
+
+}
+
+@media (min-width:10px) and (max-width: 527px) {
+    .discount .discountspan {
+        padding-left: 4px;
+        padding-right: 3px;
+        width: 87px;
+    }
+
+    .tags {
+
+        margin-left: 0px;
+
+    }
+
+
+
 }
 
 .brandandweight {
@@ -524,13 +570,28 @@ h1:hover span {
     justify-content: space-between;
 
 
+
 }
 
 .brand {
     margin-right: 50px;
+    flex: 2;
+
 }
 
+.weight {
+    flex: 1;
+}
 
+@media (min-width:696px) and (max-width: 769px) {
+    .brand {
+        flex: 1;
+    }
+
+    .weight {
+        flex: 1;
+    }
+}
 
 
 
