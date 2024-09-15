@@ -648,3 +648,85 @@ h1:hover span {
 .ppsubmit {
     margin: 15px;
 }
+
+
+.sellerviewp {
+    position: fixed;
+    top: 110px;
+    bottom: 60px;
+    overflow: auto;
+    border-radius: 7px;
+    padding: 5px 5px 00px 5px;
+    background: transparent;
+    backdrop-filter: blur(17px);
+    border: 2px solid rgb(176, 165, 138);
+    box-shadow:
+        1px 1px 7px rgba(0, 0, 0, 0.5),
+        -1px -1px 7px rgba(1, 1, 1, 0.5),
+        1px -1px 7px rgba(0, 0, 0, 0.5),
+        -1px 1px 7px rgba(1, 1, 0, 0.5);
+
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-item img.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-item h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.product-item p {
+    margin: 5px 0;
+}
+
+
+@media (min-width:1080px) {
+    .sellerviewp {
+        left: 350px;
+        right: 50px;
+    }
+
+}
+
+@media (min-width:472px) and (max-width: 696px) {
+
+
+    .sellerviewp {
+        left: 35px;
+        right: 35px;
+    }
+}
+
+@media (min-width:697px) and (max-width: 1079px) {
+
+
+    .sellerviewp {
+        left: 280px;
+        right: 50px;
+    }
+
+}
+
+@media (min-width:10px) and (max-width: 472px) {
+
+
+    .sellerviewp {
+        top: 160px;
+        left: 35px;
+        right: 35px;
+    }
+}

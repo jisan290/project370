@@ -201,7 +201,7 @@ $conn->close();
 
 
     </div>
-    <div class="main_container" id="dashboard_box">
+    <div class="main_container" id="dashboard_box" style="display: none;">
         <div class=" container text-center">
 
             <div class="row">
@@ -320,6 +320,31 @@ $conn->close();
 
 
     </div>
+    <div id = "products" class="sellerviewp">
+    </div>
+
+    <script>
+        function loadProducts() {
+            fetch('get_products.php')
+                .then(response => response.json())
+                .then(products => {
+                    const productsDiv = document.getElementById('products');
+                    productsDiv.innerHTML = products.map(product => `
+                        <div class="product-item">
+                            <img src="${product.images}" alt="${product.title}" style="width: 100px;">
+                            <h2>${product.title}</h2>
+                            <p>${product.description}</p>
+                            <p>Price: $${product.price}</p>
+                            <p>Category: ${product.category}</p>
+                    </div>
+                    `).join('');
+                });
+        }
+
+        loadProducts(); 
+
+
+    </script>
 
 
     <script src="sellerhome.js"></script>
