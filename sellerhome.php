@@ -5,6 +5,9 @@
     $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : '';
     $supplier_id = isset($_SESSION['supplier_id']) ? $_SESSION['supplier_id'] : '';
 
+    $onTheway = 0;
+    $_SESSION['supplier_id_form'] = $supplier_id;
+
 
     $sql = "SELECT COUNT(*) AS product_count FROM products WHERE supplier_id = ?";
     $stmt = $conn->prepare($sql);
@@ -20,6 +23,7 @@
 
         $product_count = '0'; 
         if ($row = $result->fetch_assoc()) {
+            
             $product_count = (string) $row['product_count']; 
         }
 
@@ -44,6 +48,7 @@
 
         $order_count = '0'; 
         if ($row = $result->fetch_assoc()) {
+            $onTheway = (int) $row['order_count'];
             $order_count = $row['order_count'];
         }
         
@@ -51,6 +56,74 @@
     } else {
         echo "Failed to prepare the SQL statement.";
     }
+
+
+
+    $sql_delivered = "SELECT COUNT(*) AS deliver_count
+    FROM order_table o
+    JOIN products p ON o.product_id = p.product_id
+    WHERE p.supplier_id = ? AND o.delivered = TRUE";
+
+    $stmt_delivered = $conn->prepare($sql_delivered);
+
+    if($stmt_delivered){
+        $stmt_delivered->bind_param("s" , $supplier_id);
+        $stmt_delivered->execute();
+        $result = $stmt_delivered->get_result();
+
+        $deliver_count = '0';
+        if($row = $result->fetch_assoc()){
+            $onTheway -= (int) $row['deliver_count'];
+            $deliver_count = $row['deliver_count'];
+        }
+        $stmt_delivered->close();
+
+    } else {
+        echo "Failed to prepare the SQL statement.";
+    }
+
+    $sql_returned = "SELECT COUNT(*) AS return_count
+    FROM order_table o
+    JOIN products p ON o.product_id = p.product_id
+    WHERE p.supplier_id = ? AND o.returned = TRUE";
+
+    $stmt_returned = $conn->prepare($sql_returned);
+
+    if($stmt_returned){
+        $stmt_returned->bind_param("s" , $supplier_id);
+        $stmt_returned->execute();
+        $result = $stmt_returned->get_result();
+
+        $return_count = '0';
+        if($row = $result->fetch_assoc()){
+            $return_count = $row['return_count'];
+        }
+        $stmt_returned->close();
+
+    } else {
+        echo "Failed to prepare the SQL statement.";
+    }
+
+    $sql_stock = "SELECT COUNT(*) AS stock_count FROM products  WHERE supplier_id = ? AND availabilityStatus = 'Out Of Stock'";
+
+    $stmt_stock = $conn->prepare($sql_stock);
+
+    if($stmt_stock){
+        $stmt_stock->bind_param("s" , $supplier_id);
+        $stmt_stock->execute();
+        $result = $stmt_stock->get_result();
+
+        $stock_count = '0';
+        if($row = $result->fetch_assoc()){
+            $stock_count = $row['stock_count'];
+        }
+        $stmt_stock->close();
+
+    } else {
+        echo "Failed to prepare the SQL statement.";
+    }
+
+    
        
 $conn->close();
 
@@ -92,9 +165,9 @@ $conn->close();
         </div>
     </div>
     <div class="sidebar">
-        <div class="profile">
-            <div class="profile-pic">
-                <img src="images/zoro.jpeg">
+        <div class="profile ">
+            <div class="profile-pic profile-pic-js" id = "profileimage">
+                <!-- <img src="images/zoro.jpeg"> -->
             </div>
             <div>
 
@@ -148,20 +221,20 @@ $conn->close();
                         <div class="values ra">[1]</div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">delivered <span>
-                        <div class="values deli">[2]</div>
+                        <div class="values deli">[<?php echo htmlspecialchars($deliver_count); ?>]</div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">On the way <span>
-                        <div class="values ontw">[3]</div>
+                        <div class="values ontw">[<?php echo htmlspecialchars($onTheway); ?>]</div>
                     </span></div>
             </div>
 
 
             <div class="row last-row">
                 <div class="col-6 info-div lastdiv1">out of stock <span>
-                        <div class="values ost">[2]</div>
+                        <div class="values ost">[<?php echo htmlspecialchars($stock_count); ?>]</div>
                     </span></div>
                 <div class="col-6 info-div lastdiv2">returned <span>
-                        <div class="values re">[1]</div>
+                        <div class="values re">[<?php echo htmlspecialchars($return_count); ?>]</div>
                     </span></div>
             </div>
         </div>
@@ -170,18 +243,18 @@ $conn->close();
 
     <div class="add_products_form" id="add_products_box" style="display: none;">
 
-        <form method="post">
+        <form method="post" action="forms.php">
             <div class="input-group title">
                 <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default">
+                    aria-describedby="inputGroup-sizing-default" required name="title">
             </div>
             <div class="mb-3 Description grid">
                 <label for="exampleFormControlTextarea1" class="form-label ">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea >
             </div>
             <div class="priceandcategory grid">
-                <select class="form-select cate" aria-label="Default select example">
+                <select class="form-select cate" aria-label="Default select example" required name="category">
                     <option selected>category</option>
                     <option value="1">Crops</option>
                     <option value="2">Vegetables</option>
@@ -192,19 +265,19 @@ $conn->close();
                 <div class="input-group mb-3 price grid">
                     <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                        aria-describedby="inputGroup-sizing-default" required name="price">
                 </div>
             </div>
             <div class="discountandtags grid">
                 <div class="input-group mb-3 discount">
                     <span class="input-group-text discountspan">discount?</span>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" required name="discount">
                     <span class="input-group-text">.00</span>
                 </div>
                 <div class="input-group mb-3 tags">
                     <span class="input-group-text" id="inputGroup-sizing-default">tags</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                        aria-describedby="inputGroup-sizing-default" name="tags">
                 </div>
 
             </div>
@@ -212,28 +285,28 @@ $conn->close();
                 <div class="input-group mb-3 brand">
                     <span class="input-group-text" id="inputGroup-sizing-default">Brand</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                        aria-describedby="inputGroup-sizing-default" name="brand">
                 </div>
 
 
                 <div class="input-group mb-3 weight">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Weight</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">stock</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                        aria-describedby="inputGroup-sizing-default" required name="stock">
                 </div>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Return policy</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default">
+                    aria-describedby="inputGroup-sizing-default" required name="return">
             </div>
             <div class="fileandsubmit">
                 <div class="mb-3 img-file">
 
-                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                    <input class="form-control" type="file" id="formFileMultiple" multiple required name="imgfile">
                 </div>
                 <div class="col-12 submit-button-box">
-                    <button class="btn btn-primary submit-button" type="submit">Submit form</button>
+                    <button class="btn btn-primary submit-button" type="submit" name="add">Submit form</button>
                 </div>
             </div>
 

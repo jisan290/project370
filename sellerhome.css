@@ -256,6 +256,7 @@ h1:hover span {
     overflow: hidden;
     border-radius: 50%;
     border: 5px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
 
 
 
@@ -641,4 +642,9 @@ h1:hover span {
         left: 35px;
         right: 35px;
     }
+}
+
+
+.ppsubmit {
+    margin: 15px;
 }

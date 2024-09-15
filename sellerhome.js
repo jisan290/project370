@@ -17,3 +17,25 @@ function toDashboard() {
     add_products_box.style.display = "none";
     dashboard_box.style.display = "block";
 }
+
+
+var div = document.getElementById('profileimage');
+
+
+var hasImage = div.querySelector('img') !== null;
+
+// if (!hasImage) {
+//     var formHtml = `
+//         <form method="POST" enctype="multipart/form-data">
+//             <input type="file" name="image" />
+//             <button type="submit" class="ppsubmit" name="submit">Submit</button>
+//         </form>
+//     `;
+
+
+//     div.innerHTML = formHtml;
+//     div.style.paddingTop = '35px';
+//     div.style.paddingRight = '15px';
+//     div.style.paddingBottom = '20px';
+//     div.style.paddingLeft = '25px';
+// }

@@ -157,5 +157,72 @@ if(isset($_POST['seller'])){
      
 
 
+}elseif(isset($_POST['add'])){
+    session_start();
+    $product_id = unique_id();
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    if (isset($_POST['category'])) {
+        $category = $_POST['category'];
+
+        
+        $validCategories = ['1', '2', '3']; 
+        if (in_array($category, $validCategories)) {
+          
+            switch ($category) {
+                case '1':
+                    $category = 'Crops';
+                    break;
+                case '2':
+                    $category = 'Vegetables';
+                    break;
+                case '3':
+                    $category = 'Fruits';
+                    break;
+                default:
+                    $category = 'Unknown'; 
+            }
+        } else {
+            
+            $category = null;
+        }
+    }
+    $price = $_POST['price'];
+    $discountPercentage = $_POST['discount'];
+
+    $tags = json_encode($_POST['tags']);
+    $brand = $_POST['brand'];
+  
+    $stock = $_POST['stock'];
+    $images = json_encode($_POST['imgfile']);
+    
+   
+  
+    $shippingInformation = '2 to 3 days';
+    $availabilityStatus = 'In Stock';
+
+    $returnPolicy = $_POST['return'];
+    $supplier_id = isset($_SESSION['supplier_id_form']) ? $_SESSION['supplier_id_form'] : '';
+    
+
+
+    $sql = "INSERT INTO products (product_id ,title, description, category, price, discountPercentage, stock, tags, brand,shippingInformation ,availabilityStatus,returnPolicy, images, supplier_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssssssssssss",$product_id, $title, $description, $category, $price, $discountPercentage,  $stock, $tags, $brand, $shippingInformation, $availabilityStatus, $returnPolicy, $images, $supplier_id);
+
+
+    $stmt->execute();
+    header("location: sellerhome.php");
+    
+
+    $stmt->close();
+    $conn->close();
+    exit();
+
+
+
+
 }
 ?>
