@@ -105,6 +105,7 @@
     }
 
     $sql_stock = "SELECT COUNT(*) AS stock_count FROM products  WHERE supplier_id = ? AND availabilityStatus = 'Out Of Stock'";
+    
 
     $stmt_stock = $conn->prepare($sql_stock);
 
@@ -147,6 +148,7 @@
             $stmt->close();
             
             $message = 'Image uploaded and saved successfully!';
+            header("location:sellerhome.php");
         } else {
             $message = 'Error uploading file.';
         }
@@ -173,6 +175,19 @@
     }else {
         $profilePic = 'profile/default.png'; 
     }
+
+ //   ////////// data to show in accounts /////////////////
+    $sql_data = "SELECT * FROM supplier WHERE unique_id = ?";
+    $stmt_data = $conn->prepare($sql_data);
+    $stmt_data->bind_param("s", $supplier_id);
+    $stmt_data->execute();
+    $result_data = $stmt_data->get_result();
+
+  
+    $supplier_data = $result_data->fetch_assoc();
+
+  
+    $stmt_data->close();
     
 
     
@@ -247,7 +262,7 @@ $conn->close();
             <p onclick="toViewproducts()">View products</p>
         </div>
         <div class="accounts box">
-            <p>Accounts</p>
+            <p onclick="toAccountinfo()">Accounts</p>
         </div>
         <div class="logOUT box"><a href="login.html">Log out</a></div>
         <div class="social"></div>
@@ -273,7 +288,7 @@ $conn->close();
 
             <div class="row">
                 <div class="col-6 col-md-4 info-div">recently added <span>
-                        <div class="values ra">[0]</div>
+                        <div id="ra" class="values ra">[0]</div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">delivered <span>
                         <div class="values deli">
@@ -290,9 +305,9 @@ $conn->close();
 
             <div class="row last-row">
                 <div class="col-6 info-div lastdiv1">out of stock <span>
-                        <div class="values ost">
+                        <div  class="values ost">
                             
-                            [<?php echo htmlspecialchars($stock_count); ?>]
+                            [<span id="stock-value"><?php echo htmlspecialchars($stock_count); ?></span>]
                         </div>
                     </span></div>
                 <div class="col-6 info-div lastdiv2">returned <span>
@@ -372,7 +387,7 @@ $conn->close();
                     <input class="form-control" type="file" id="formFileMultiple" multiple required name="imgfile">
                 </div>
                 <div class="col-12 submit-button-box">
-                    <button class="btn btn-primary submit-button" type="submit" name="add">Submit form</button>
+                    <button class="btn btn-primary submit-button" type="submit" name="add" onclick="update_ra()">Submit form</button>
                 </div>
             </div>
 
@@ -396,10 +411,78 @@ $conn->close();
                 <input class="upload-image" type="submit" value="Upload Image">
             </form>
     </div>
+
+
     <div id="products" class="sellerviewp" style="display: none;">
     </div>
 
+    <div class="account-info"  id="account-info" style="display:none;">
+        <button class="btn btn-primary edit-button" onclick="toggleEditForm()">Edit</button>
+            <p><strong>Name:</strong> <span id="profile-name"><?php echo htmlspecialchars($supplier_data['first_name']); ?> <?php echo htmlspecialchars($supplier_data['last_name']); ?></span></p>
+            <p><strong>Email:</strong> <span id="profile-email"><?php echo htmlspecialchars($supplier_data['gmail']); ?></span></p>
+            <p><strong>Phone:</strong> <span id="profile-phone"><?php echo htmlspecialchars($supplier_data['phone']); ?></span></p>
+            <p><strong>Shop Address:</strong> <span id="profile-address"><?php echo htmlspecialchars($supplier_data['city']); ?> <?php echo htmlspecialchars($supplier_data['road']); ?> <?php echo htmlspecialchars($supplier_data['house']); ?></span></p>
+            <p><strong>Seller ID:</strong> <span id="profile-sellerid"><?php echo htmlspecialchars($supplier_data['unique_id']); ?></span></p>
+            
+    </div>
+
+    <!-- edit form -->
+
+    <div class="account-info" id="edit-form" style = "display:none;">
+        <form  class="edit-form" method="post" action="update_profile.php">
+            <button type="button" class="btn btn-secondary cancel-button" onclick="toggleEditForm()">Cancel</button>
+
+            <div class="edit-form-grid">
+                
+                <div class="input-group mb-3 price grid">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="edit-name" name="name" required>
+                </div>
+               
+                <div class="input-group mb-3 price grid">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                    <input type="email" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="edit-email" name="email" required>
+                </div>
+                
+                
+                <div class="input-group mb-3 price grid">
+                    <span class="input-group-text" id="inputGroup-sizing-default">password</span>
+                    <input type="password" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="edit-password" name="password" required>
+                </div>
+                
+                <div class="input-group mb-3 price grid">
+                    <span class="input-group-text" id="inputGroup-sizing-default">phone</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="edit-phone" name="phone" required>
+                </div>
+                
+                <div class="input-group mb-3 price grid">
+                    <span class="input-group-text" id="inputGroup-sizing-default">shop address</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="edit-address" name="address" required>
+                </div>
+                <input type="hidden" name="seller_id" value="S12345">
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            </div>
+            
+        </form>
+
     
+    </div>
+
+
+    <div class= "account" id="account">
+
+
+
+
+
+
+    </div>
+
 
     <script>
         function loadProducts() {

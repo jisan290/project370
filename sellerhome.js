@@ -6,11 +6,14 @@ const dashboard_box = document.getElementById('dashboard_box');
 const add_products_box = document.getElementById('add_products_box');
 const view_products_box = document.getElementById('products');
 const upload_p_box = document.getElementById('upload-form');
+const account_info_box = document.getElementById('account-info');
+const account_edit_box = document.getElementById('edit-form');
 
 function toAddproducts() {
     dashboard_box.style.display = "none";
     upload_p_box.style.display = "none";
     view_products_box.style.display = "none";
+    account_info_box.style.display = "none";
     add_products_box.style.display = "block";
 
 
@@ -21,6 +24,7 @@ function toDashboard() {
     add_products_box.style.display = "none";
     upload_p_box.style.display = "none";
     view_products_box.style.display = "none";
+    account_info_box.style.display = "none";
 
     dashboard_box.style.display = "block";
 }
@@ -29,11 +33,13 @@ function toViewproducts() {
     add_products_box.style.display = "none";
     upload_p_box.style.display = "none";
     dashboard_box.style.display = "none";
+    account_info_box.style.display = "none";
     view_products_box.style.display = "block";
 
 }
 function toUploadpp() {
     add_products_box.style.display = "none";
+    account_info_box.style.display = "none";
     dashboard_box.style.display = "none";
     view_products_box.style.display = "none";
     upload_p_box.style.display = "block";
@@ -41,6 +47,76 @@ function toUploadpp() {
 
 }
 
+function toAccountinfo() {
+    add_products_box.style.display = "none";
+
+    dashboard_box.style.display = "none";
+    view_products_box.style.display = "none";
+    upload_p_box.style.display = "none";
+    account_info_box.style.display = "block";
+
+}
+
+function toggleEditForm() {
+    if (account_info_box.style.display === 'none') {
+        account_info_box.style.display = 'block';
+        account_edit_box.style.display = 'none';
+    } else {
+        account_info_box.style.display = 'none';
+        account_edit_box.style.display = 'block';
+
+
+
+
+        document.getElementById('edit-name').value = document.getElementById('profile-name').textContent;
+
+        document.getElementById('edit-email').value = document.getElementById('profile-email').textContent;
+        document.getElementById('edit-password').value = '';
+        document.getElementById('edit-phone').value = document.getElementById('profile-phone').textContent;
+        document.getElementById('edit-address').value = document.getElementById('profile-address').textContent;
+
+    }
+
+
+
+
+
+}
+let count = 0;
+function update_ra() {
+
+    count++
+    document.getElementById('ra').textContent = `[${count}]`;
+    setTimeout(() => {
+        document.getElementById('ra').textContent = `[0]`;
+
+
+    }, 900000);
+
+
+}
+let stock_state = document.getElementById('stock-value').innerHTML;
+
+if (stock_state !== '0') {
+    setInterval(toggleColor, 500);
+
+
+} else {
+    clearInterval;
+}
+
+const textElement = document.getElementById('stock-value');
+let isRed = true;
+
+
+function toggleColor() {
+    if (isRed) {
+        textElement.style.color = 'white';
+    } else {
+        textElement.style.color = 'red';
+    }
+    isRed = !isRed;
+}
 
 
 

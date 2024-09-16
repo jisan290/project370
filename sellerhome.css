@@ -824,3 +824,56 @@ h1:hover span {
         right: 35px;
     }
 }
+
+.account-info {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    top: 160px;
+    left: 300px;
+    right: 30px;
+    bottom: 180px;
+    border-radius: 7px;
+
+    background: transparent;
+    backdrop-filter: blur(7px);
+    border-radius: 9px;
+
+    border: 2px solid rgb(176, 165, 138);
+    box-shadow:
+        1px 1px 7px rgba(0, 0, 0, 0.5),
+        -1px -1px 7px rgba(1, 1, 1, 0.5),
+        1px -1px 7px rgba(0, 0, 0, 0.5),
+        -1px 1px 7px rgba(1, 1, 0, 0.5);
+}
+
+.account-info p {
+    margin-top: 44px;
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.442);
+}
+
+.edit-form-grid {
+    position: relative;
+    top: 50px;
+}
+
+
+
+.edit-button {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    height: 40px;
+    width: 70px;
+}
+
+.cancel-button {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+
+}
