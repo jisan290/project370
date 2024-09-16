@@ -166,12 +166,14 @@
         if ($row = $result->fetch_assoc()) {
             $profilePic = $row['image'];
         } else {
-            $profilePic = 'default-profile.png'; /
-    
+            $profilePic = 'profile/default.png'; 
+        }
         $stmt->close();
-    } else {
-        $profilePic = 'default-profile.png'; 
+        
+    }else {
+        $profilePic = 'profile/default.png'; 
     }
+    
 
     
        
@@ -216,7 +218,7 @@ $conn->close();
     </div>
     <div class="sidebar">
         <div class="profile ">
-            <div class="profile-pic profile-pic-js" id="profileimage">
+            <div class="profile-pic profile-pic-js" id="profileimage" onclick="toUploadpp()">
                 
                 <img src="uploads/<?php echo htmlspecialchars($profilePic); ?>" alt="Profile Picture">
             </div>
@@ -252,18 +254,18 @@ $conn->close();
 
 
     </div>
-    <div class="main_container" id="dashboard_box" style = "display:none;">
+    <div class="main_container" id="dashboard_box" >
         <div class=" container text-center">
 
             <div class="row">
                 <div class="col-md-8 info-div">products currently available <span>
-                        <div class="values pa"> [
-                            <?php echo htmlspecialchars($product_count); ?>]
+                        <div class="values pa"> 
+                            [<?php echo htmlspecialchars($product_count); ?>]
                         </div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">orders <span>
-                        <div class="values or">[
-                            <?php echo htmlspecialchars($order_count); ?>]
+                        <div class="values or">
+                            [<?php echo htmlspecialchars($order_count); ?>]
                         </div>
                     </span></div>
             </div>
@@ -271,16 +273,16 @@ $conn->close();
 
             <div class="row">
                 <div class="col-6 col-md-4 info-div">recently added <span>
-                        <div class="values ra">[1]</div>
+                        <div class="values ra">[0]</div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">delivered <span>
-                        <div class="values deli">[
-                            <?php echo htmlspecialchars($deliver_count); ?>]
+                        <div class="values deli">
+                            [<?php echo htmlspecialchars($deliver_count); ?>]
                         </div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">On the way <span>
-                        <div class="values ontw">[
-                            <?php echo htmlspecialchars($onTheway); ?>]
+                        <div class="values ontw">
+                            [<?php echo htmlspecialchars($onTheway); ?>]
                         </div>
                     </span></div>
             </div>
@@ -289,13 +291,13 @@ $conn->close();
             <div class="row last-row">
                 <div class="col-6 info-div lastdiv1">out of stock <span>
                         <div class="values ost">
-                            [
-                            <?php echo htmlspecialchars($stock_count); ?>]
+                            
+                            [<?php echo htmlspecialchars($stock_count); ?>]
                         </div>
                     </span></div>
                 <div class="col-6 info-div lastdiv2">returned <span>
-                        <div class="values re">[
-                            <?php echo htmlspecialchars($return_count); ?>]
+                        <div class="values re">
+                            [<?php echo htmlspecialchars($return_count); ?>]
                         </div>
                     </span></div>
             </div>
@@ -384,15 +386,20 @@ $conn->close();
 
 
     </div>
-    <div class="upload-form">
+    <div class="upload-form" id="upload-form" style = "display:none;">
             <h2>Upload Profile Picture</h2>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
-                <input type="file" name="profile_pic" accept="image/*" required>
-                <input type="submit" value="Upload Image">
+                <!-- <input type="file" name="profile_pic" accept="image/*" required> -->
+                <div class="mb-3 input-image-form">
+                    <input class="form-control" type="file"  name="profile_pic" accept="image/*" required>
+                </div>
+                <input class="upload-image" type="submit" value="Upload Image">
             </form>
     </div>
     <div id="products" class="sellerviewp" style="display: none;">
     </div>
+
+    
 
     <script>
         function loadProducts() {

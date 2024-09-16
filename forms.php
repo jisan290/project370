@@ -22,6 +22,7 @@ if(isset($_POST['seller'])){
     $house = $parts[2];
     
     $nid = $_POST['nid'];
+    $image = 'uploads/default.png';
 
     #-----
 
@@ -32,8 +33,8 @@ if(isset($_POST['seller'])){
         echo "email already exits";
      }
      else {
-        $insertQuery = "INSERT INTO supplier(first_name , last_name , gmail , password ,city , road , house, phone ,  nid  , unique_id)
-        VALUES('$firstName' , '$lastName' , '$gmail' , '$pass' ,'$city','$road','$house', '$phone' ,  '$nid' , '$id')";
+        $insertQuery = "INSERT INTO supplier(first_name , last_name , gmail , password ,city , road , house, phone ,  nid  , unique_id , image)
+        VALUES('$firstName' , '$lastName' , '$gmail' , '$pass' ,'$city','$road','$house', '$phone' ,  '$nid' , '$id' , '$image')";
         if($conn->query($insertQuery)==TRUE){
             header("location: login.html");
         }

@@ -760,7 +760,67 @@ h1:hover span {
 
 .upload-form {
     position: fixed;
-    top: 200px;
+    top: 300px;
+
     left: 300px;
-    background-color: red;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-radius: 9px;
+
+    border: 2px solid rgb(176, 165, 138);
+    box-shadow:
+        1px 1px 7px rgba(0, 0, 0, 0.5),
+        -1px -1px 7px rgba(1, 1, 1, 0.5),
+        1px -1px 7px rgba(0, 0, 0, 0.5),
+        -1px 1px 7px rgba(1, 1, 0, 0.5);
+}
+
+.upload-form .upload-image {
+    margin: 0px 0px 3px 4px;
+    border-radius: 5px;
+    background-color: rgb(202, 221, 23);
+    align-self: center;
+
+}
+
+.upload-form .input-image-form {
+    margin-right: 30px;
+    margin-left: 3px;
+}
+
+@media (min-width:1080px) {
+    .upload-form {
+        left: 450px;
+        right: 150px;
+    }
+
+}
+
+@media (min-width:472px) and (max-width: 696px) {
+
+
+    .upload-form {
+        left: 35px;
+        right: 35px;
+    }
+}
+
+@media (min-width:697px) and (max-width: 1079px) {
+
+
+    .upload-form {
+        left: 330px;
+        right: 100px;
+    }
+
+}
+
+@media (min-width:10px) and (max-width: 472px) {
+
+
+    .upload-form {
+        top: 160px;
+        left: 35px;
+        right: 35px;
+    }
 }
