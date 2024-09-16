@@ -668,6 +668,33 @@ h1:hover span {
 
 }
 
+.sellerviewp::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+}
+
+.sellerviewp::-webkit-scrollbar-track {
+
+    background: transparent;
+
+    border-radius: 7px;
+
+}
+
+.sellerviewp::-webkit-scrollbar-thumb {
+    background: #133d69;
+
+    border-radius: 7px;
+    height: 30px;
+
+
+}
+
+.sellerviewp::-webkit-scrollbar-thumb:hover {
+    background: #473e3e;
+
+}
+
 .product-item {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -729,4 +756,11 @@ h1:hover span {
         left: 35px;
         right: 35px;
     }
+}
+
+.upload-form {
+    position: fixed;
+    top: 200px;
+    left: 300px;
+    background-color: red;
 }

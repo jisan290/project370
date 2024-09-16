@@ -123,6 +123,56 @@
         echo "Failed to prepare the SQL statement.";
     }
 
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
+        $fileTmpPath = $_FILES['profile_pic']['tmp_name'];
+        $fileName = $_FILES['profile_pic']['name'];
+        $fileSize = $_FILES['profile_pic']['size'];
+        $fileType = $_FILES['profile_pic']['type'];
+        
+        $uploadDir = 'uploads/'; 
+        $filePath = $uploadDir . basename($fileName);
+    
+        
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        if (!in_array($fileType, $allowedTypes)) {
+            die('Invalid file type.');
+        }
+    
+        if (move_uploaded_file($fileTmpPath, $filePath)) {
+
+            $stmt = $conn->prepare("UPDATE supplier SET image = ? WHERE unique_id = ?");
+            $stmt->bind_param('ss', $fileName, $supplier_id);
+            $stmt->execute();
+            $stmt->close();
+            
+            $message = 'Image uploaded and saved successfully!';
+        } else {
+            $message = 'Error uploading file.';
+        }
+    } else {
+        $message = '';
+    }
+    
+    
+    $sql = "SELECT image FROM supplier WHERE unique_id = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("s", $supplier_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($row = $result->fetch_assoc()) {
+            $profilePic = $row['image'];
+        } else {
+            $profilePic = 'default-profile.png'; /
+    
+        $stmt->close();
+    } else {
+        $profilePic = 'default-profile.png'; 
+    }
+
     
        
 $conn->close();
@@ -157,7 +207,7 @@ $conn->close();
 
         </div>
         <div class="middle">
-            
+
             <p>welcome to agro village</p>
         </div>
         <div class="right">
@@ -166,8 +216,9 @@ $conn->close();
     </div>
     <div class="sidebar">
         <div class="profile ">
-            <div class="profile-pic profile-pic-js" id = "profileimage">
-                <!-- <img src="images/zoro.jpeg"> -->
+            <div class="profile-pic profile-pic-js" id="profileimage">
+                
+                <img src="uploads/<?php echo htmlspecialchars($profilePic); ?>" alt="Profile Picture">
             </div>
             <div>
 
@@ -191,7 +242,7 @@ $conn->close();
             <p id="glowp" onclick="toAddproducts()">Add products</p>
         </div>
         <div class="view_products box">
-            <p>View products</p>
+            <p onclick="toViewproducts()">View products</p>
         </div>
         <div class="accounts box">
             <p>Accounts</p>
@@ -201,16 +252,18 @@ $conn->close();
 
 
     </div>
-    <div class="main_container" id="dashboard_box" style="display: none;">
+    <div class="main_container" id="dashboard_box" style = "display:none;">
         <div class=" container text-center">
 
             <div class="row">
                 <div class="col-md-8 info-div">products currently available <span>
-                        <div class="values pa"> [<?php echo htmlspecialchars($product_count); ?>]
+                        <div class="values pa"> [
+                            <?php echo htmlspecialchars($product_count); ?>]
                         </div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">orders <span>
-                        <div class="values or">[<?php echo htmlspecialchars($order_count); ?>]
+                        <div class="values or">[
+                            <?php echo htmlspecialchars($order_count); ?>]
                         </div>
                     </span></div>
             </div>
@@ -221,20 +274,29 @@ $conn->close();
                         <div class="values ra">[1]</div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">delivered <span>
-                        <div class="values deli">[<?php echo htmlspecialchars($deliver_count); ?>]</div>
+                        <div class="values deli">[
+                            <?php echo htmlspecialchars($deliver_count); ?>]
+                        </div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">On the way <span>
-                        <div class="values ontw">[<?php echo htmlspecialchars($onTheway); ?>]</div>
+                        <div class="values ontw">[
+                            <?php echo htmlspecialchars($onTheway); ?>]
+                        </div>
                     </span></div>
             </div>
 
 
             <div class="row last-row">
                 <div class="col-6 info-div lastdiv1">out of stock <span>
-                        <div class="values ost">[<?php echo htmlspecialchars($stock_count); ?>]</div>
+                        <div class="values ost">
+                            [
+                            <?php echo htmlspecialchars($stock_count); ?>]
+                        </div>
                     </span></div>
                 <div class="col-6 info-div lastdiv2">returned <span>
-                        <div class="values re">[<?php echo htmlspecialchars($return_count); ?>]</div>
+                        <div class="values re">[
+                            <?php echo htmlspecialchars($return_count); ?>]
+                        </div>
                     </span></div>
             </div>
         </div>
@@ -251,7 +313,8 @@ $conn->close();
             </div>
             <div class="mb-3 Description grid">
                 <label for="exampleFormControlTextarea1" class="form-label ">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea >
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
+                    required></textarea>
             </div>
             <div class="priceandcategory grid">
                 <select class="form-select cate" aria-label="Default select example" required name="category">
@@ -271,7 +334,8 @@ $conn->close();
             <div class="discountandtags grid">
                 <div class="input-group mb-3 discount">
                     <span class="input-group-text discountspan">discount?</span>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" required name="discount">
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" required
+                        name="discount">
                     <span class="input-group-text">.00</span>
                 </div>
                 <div class="input-group mb-3 tags">
@@ -320,30 +384,45 @@ $conn->close();
 
 
     </div>
-    <div id = "products" class="sellerviewp">
+    <div class="upload-form">
+            <h2>Upload Profile Picture</h2>
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
+                <input type="file" name="profile_pic" accept="image/*" required>
+                <input type="submit" value="Upload Image">
+            </form>
+    </div>
+    <div id="products" class="sellerviewp" style="display: none;">
     </div>
 
     <script>
         function loadProducts() {
             fetch('get_products.php')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(products => {
                     const productsDiv = document.getElementById('products');
                     productsDiv.innerHTML = products.map(product => `
                         <div class="product-item">
-                            <img src="${product.images}" alt="${product.title}" style="width: 100px;">
+                            <img src="${product.images[0]}" alt="${product.title}" style="width: 100px;">
                             <h2>${product.title}</h2>
                             <p>${product.description}</p>
                             <p>Price: $${product.price}</p>
                             <p>Category: ${product.category}</p>
-                    </div>
+                        </div>
                     `).join('');
+
+
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
                 });
         }
 
-        loadProducts(); 
-
-
+        loadProducts();
     </script>
 
 

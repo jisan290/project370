@@ -14,13 +14,15 @@ if ($stmt) {
 
     $products = [];
     while ($row = $result->fetch_assoc()) {
+        // Decode the JSON string if it's stored as JSON
+        $row['images'] = json_decode($row['images']); 
         $products[] = $row;
     }
 
     echo json_encode($products);
     $stmt->close();
 } else {
-    echo json_encode([]);
+    echo json_encode(['error' => 'Failed to prepare statement']);
 }
 
 $conn->close();
