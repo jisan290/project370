@@ -8,12 +8,15 @@ const view_products_box = document.getElementById('products');
 const upload_p_box = document.getElementById('upload-form');
 const account_info_box = document.getElementById('account-info');
 const account_edit_box = document.getElementById('edit-form');
+const stock_out_box = document.getElementById('stockout-products');
 
 function toAddproducts() {
     dashboard_box.style.display = "none";
     upload_p_box.style.display = "none";
     view_products_box.style.display = "none";
     account_info_box.style.display = "none";
+    stock_out_box.style.display = "none";
+    account_edit_box.style.display = 'none';
     add_products_box.style.display = "block";
 
 
@@ -25,15 +28,17 @@ function toDashboard() {
     upload_p_box.style.display = "none";
     view_products_box.style.display = "none";
     account_info_box.style.display = "none";
-
+    account_edit_box.style.display = 'none';
+    stock_out_box.style.display = "none";
     dashboard_box.style.display = "block";
 }
 function toViewproducts() {
-
+    account_edit_box.style.display = 'none';
     add_products_box.style.display = "none";
     upload_p_box.style.display = "none";
     dashboard_box.style.display = "none";
     account_info_box.style.display = "none";
+    stock_out_box.style.display = "none";
     view_products_box.style.display = "block";
 
 }
@@ -42,18 +47,37 @@ function toUploadpp() {
     account_info_box.style.display = "none";
     dashboard_box.style.display = "none";
     view_products_box.style.display = "none";
+    stock_out_box.style.display = "none";
+    account_edit_box.style.display = 'none';
+
     upload_p_box.style.display = "block";
+
 
 
 }
 
 function toAccountinfo() {
     add_products_box.style.display = "none";
+    account_edit_box.style.display = 'none';
+    dashboard_box.style.display = "none";
+    view_products_box.style.display = "none";
+    upload_p_box.style.display = "none";
+    stock_out_box.style.display = "none";
+
+    account_info_box.style.display = "block";
+
+}
+
+function toStockoutProducts() {
+    add_products_box.style.display = "none";
 
     dashboard_box.style.display = "none";
     view_products_box.style.display = "none";
     upload_p_box.style.display = "none";
-    account_info_box.style.display = "block";
+    account_info_box.style.display = "none";
+    stock_out_box.style.display = "block";
+
+
 
 }
 

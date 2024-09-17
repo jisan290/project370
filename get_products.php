@@ -4,7 +4,7 @@ session_start();
 
 $supplier_id = isset($_SESSION['supplier_id']) ? $_SESSION['supplier_id'] : '';
 
-$sql = "SELECT title, description, price, category, images FROM products WHERE supplier_id = ?";
+$sql = "SELECT title,product_id, description, price,stock, availabilityStatus, images FROM products WHERE supplier_id = ?";
 $stmt = $conn->prepare($sql);
 
 if ($stmt) {
@@ -14,7 +14,7 @@ if ($stmt) {
 
     $products = [];
     while ($row = $result->fetch_assoc()) {
-        // Decode the JSON string if it's stored as JSON
+        
         $row['images'] = json_decode($row['images']); 
         $products[] = $row;
     }

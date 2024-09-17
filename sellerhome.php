@@ -305,9 +305,9 @@ $conn->close();
 
             <div class="row last-row">
                 <div class="col-6 info-div lastdiv1">out of stock <span>
-                        <div  class="values ost">
+                        <div  class="values ost" onclick="toStockoutProducts()" >
                             
-                            [<span id="stock-value"><?php echo htmlspecialchars($stock_count); ?></span>]
+                            [<span id="stock-value" ><?php echo htmlspecialchars($stock_count); ?></span>]
                         </div>
                     </span></div>
                 <div class="col-6 info-div lastdiv2">returned <span>
@@ -413,8 +413,13 @@ $conn->close();
     </div>
 
 
+
+<!-- //////////////////////for view producrts/////////////////// -->
     <div id="products" class="sellerviewp" style="display: none;">
     </div>
+<!-- ////////////////////////////////////////////////////////////////// -->
+
+
 
     <div class="account-info"  id="account-info" style="display:none;">
         <button class="btn btn-primary edit-button" onclick="toggleEditForm()">Edit</button>
@@ -476,13 +481,14 @@ $conn->close();
 
     <div class= "account" id="account">
 
-
-
-
+    </div>
+ <!-- //////////show stock out products ///////// -->
+<!-- /////////////////////from dashboard////////////////// -->
+    <div class="sellerviewp" id = "stockout-products" style="display:none;">
 
 
     </div>
-
+<!-- ////////////////////////////////////////////////////// -->
 
     <script>
         function loadProducts() {
@@ -501,7 +507,7 @@ $conn->close();
                             <h2>${product.title}</h2>
                             <p>${product.description}</p>
                             <p>Price: $${product.price}</p>
-                            <p>Category: ${product.category}</p>
+                            <p>Status: ${product.availabilityStatus}</p>
                         </div>
                     `).join('');
 
@@ -513,6 +519,59 @@ $conn->close();
         }
 
         loadProducts();
+
+
+        /////////////////stockout products////////////////////////////////////
+ ///// ///////////for the blinking button ////////////////////////
+
+        function show_stockout_products(){
+            fetch('get_products.php')
+                .then(response => {
+                    if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(products => {
+
+                    const outOfStockProducts = products.filter(product => product.availabilityStatus === 'Out Of Stock');
+
+
+                    const productsDiv = document.getElementById('stockout-products');
+
+
+                    productsDiv.innerHTML = outOfStockProducts.map(product => `
+                        <div class="product-item">
+                            <img src="${product.images[0]}" alt="${product.title}" style="width: 100px;">
+                            <h2>${product.title}</h2>
+                            <p>${product.description}</p>
+                            <p>Price: $${product.price}</p>
+                            <p>Status: ${product.stock}</p>
+                            <form  class="edit-stock" method="post" action="update_stock.php">
+
+                                <div class="input-group mb-3 price grid">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">update stock status</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" id="edit-stock" name="stock-state" required>
+                                </div>
+                                <input type="hidden" name="product_id" value="${product.product_id}">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </form>
+                            <p class="stock-out-message">This product is currently out of stock.</p>
+                        </div>
+                    `).join('');
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+
+
+
+        }
+        show_stockout_products();
+
+
+
     </script>
 
 

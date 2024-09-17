@@ -410,6 +410,11 @@ h1:hover span {
 
 .lastdiv1 {
     border-radius: 0 0 0 44px;
+    user-select: none;
+}
+
+.lastdiv1 .ost {
+    user-select: none;
 }
 
 .lastdiv2 {
@@ -454,9 +459,9 @@ h1:hover span {
 
     background: transparent;
     backdrop-filter: blur(17px);
+
     border: 2px solid rgb(176, 165, 138);
     box-shadow:
-        1px 1px 7px rgba(0, 0, 0, 0.5),
         -1px -1px 7px rgba(1, 1, 1, 0.5),
         1px -1px 7px rgba(0, 0, 0, 0.5),
         -1px 1px 7px rgba(1, 1, 0, 0.5);

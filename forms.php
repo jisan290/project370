@@ -204,6 +204,7 @@ if(isset($_POST['seller'])){
 
     $returnPolicy = $_POST['return'];
     $supplier_id = isset($_SESSION['supplier_id_form']) ? $_SESSION['supplier_id_form'] : '';
+    $_SESSION['recently-added']
     
 
 
