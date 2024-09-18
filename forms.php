@@ -47,6 +47,7 @@ if(isset($_POST['seller'])){
 
 }elseif(isset($_POST['customer'])){
     $uniqueID = unique_id();
+    $cartID = unique_id();
     $name = $_POST['name'];
     $gmail = $_POST['gmail'];
     $pass = $_POST['password'];
@@ -59,6 +60,7 @@ if(isset($_POST['seller'])){
     $city = $parts[0];
     $road = $parts[1];
     $house = $parts[2];
+     
 
      $checkEmail = "SELECT * From customer where gmail = '$gmail'";
      $result = $conn->query($checkEmail);
@@ -68,6 +70,9 @@ if(isset($_POST['seller'])){
      else {
         $insertQuery = "INSERT INTO customer(name , gmail , password , phone , city , road , house, unique_id)
         VALUES('$name', '$gmail' , '$pass' , '$phone' ,'$city','$road' , '$house', '$uniqueID')";
+        $cart_insert = "INSERT INTO cart(customer_id, cart_id)
+        VALUES('$uniqueID' , '$cartID')";
+        $conn->query($cart_insert);
         if($conn->query($insertQuery)== TRUE){
             header("location: login.html");
         }else {
@@ -140,8 +145,22 @@ if(isset($_POST['seller'])){
 
 
         }elseif($result2->num_rows>0 && $passResult2->num_rows>0){
+            session_start();
+           
 
-            header("location: customerhome.html");
+
+            $cusID = "select unique_id from customer where gmail = '$gmail'";
+            $stmt = $conn->query($cusID);
+            $rs = $stmt->fetch_assoc();
+            $resultID = $rs['unique_id'];
+            $_SESSION['customer_id'] = $resultID;
+            
+
+            header("location: customer_part/products.php");
+
+
+
+            exit();
 
         
         
@@ -204,7 +223,7 @@ if(isset($_POST['seller'])){
 
     $returnPolicy = $_POST['return'];
     $supplier_id = isset($_SESSION['supplier_id_form']) ? $_SESSION['supplier_id_form'] : '';
-    $_SESSION['recently-added']
+    $_SESSION['recently-added'];
     
 
 
