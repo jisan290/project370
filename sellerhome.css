@@ -434,6 +434,7 @@ h1:hover span {
     font-size: 30px;
     font-weight: bold;
     color: white;
+
     text-shadow:
         1px 1px 4px rgba(0, 0, 0, 0.5),
         -1px -1px 4px rgba(1, 1, 1, 0.5),
@@ -445,6 +446,7 @@ h1:hover span {
 .info-div .values {
     margin-left: 4px;
     cursor: pointer;
+
 }
 
 .add_products_form {
