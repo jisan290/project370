@@ -228,7 +228,7 @@ $conn->close();
             <p>welcome to agro village</p>
         </div>
         <div class="right">
-            <button type="button" class="btn btn-outline-success explore-button">explore</button>
+            <button type="button" class="btn btn-outline-success explore-button">report</button>
         </div>
     </div>
     <div class="sidebar">
@@ -279,7 +279,7 @@ $conn->close();
                         </div>
                     </span></div>
                 <div class="col-6 col-md-4 info-div">orders <span>
-                        <div class="values or">
+                        <div class="values or" onclick="toViewOrders()">
                             [<?php echo htmlspecialchars($order_count); ?>]
                         </div>
                     </span></div>
@@ -488,6 +488,18 @@ $conn->close();
 
 
     </div>
+
+<!-- //////////////////////////////////////            to show ordered products ////////////////-->
+    <div class = "sellerviewp" id = "ordered-products" style ="display:none;">
+
+
+
+    </div>
+
+
+
+
+
 <!-- ////////////////////////////////////////////////////// -->
 
     <script>
@@ -569,6 +581,37 @@ $conn->close();
 
         }
         show_stockout_products();
+
+
+        function show_ordered_products(){
+            fetch('get_ordered_products.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(products => {
+                    const productsDiv = document.getElementById('ordered-products');
+                    productsDiv.innerHTML = products.map(product => `
+                        <div class="product-item">
+                            <img src="${product.images[0]}" alt="${product.title}" style="width: 100px;">
+                            <h2>${product.title}</h2>
+                            <p>${product.description}</p>
+                            <p>Price: $${product.price}</p>
+                            
+                        </div>
+                    `).join('');
+
+
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+
+
+        }
+        show_ordered_products();
 
 
 

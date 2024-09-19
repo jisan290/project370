@@ -9,11 +9,13 @@ const upload_p_box = document.getElementById('upload-form');
 const account_info_box = document.getElementById('account-info');
 const account_edit_box = document.getElementById('edit-form');
 const stock_out_box = document.getElementById('stockout-products');
+const view_orders_box = document.getElementById('ordered-products');
 
 function toAddproducts() {
     dashboard_box.style.display = "none";
     upload_p_box.style.display = "none";
     view_products_box.style.display = "none";
+    view_orders_box.style.display = "none";
     account_info_box.style.display = "none";
     stock_out_box.style.display = "none";
     account_edit_box.style.display = 'none';
@@ -30,6 +32,7 @@ function toDashboard() {
     account_info_box.style.display = "none";
     account_edit_box.style.display = 'none';
     stock_out_box.style.display = "none";
+    view_orders_box.style.display = "none";
     dashboard_box.style.display = "block";
 }
 function toViewproducts() {
@@ -39,6 +42,7 @@ function toViewproducts() {
     dashboard_box.style.display = "none";
     account_info_box.style.display = "none";
     stock_out_box.style.display = "none";
+    view_orders_box.style.display = "none";
     view_products_box.style.display = "block";
 
 }
@@ -49,6 +53,7 @@ function toUploadpp() {
     view_products_box.style.display = "none";
     stock_out_box.style.display = "none";
     account_edit_box.style.display = 'none';
+    view_orders_box.style.display = "none";
 
     upload_p_box.style.display = "block";
 
@@ -63,6 +68,7 @@ function toAccountinfo() {
     view_products_box.style.display = "none";
     upload_p_box.style.display = "none";
     stock_out_box.style.display = "none";
+    view_orders_box.style.display = "none";
 
     account_info_box.style.display = "block";
 
@@ -75,7 +81,23 @@ function toStockoutProducts() {
     view_products_box.style.display = "none";
     upload_p_box.style.display = "none";
     account_info_box.style.display = "none";
+    view_orders_box.style.display = "none";
     stock_out_box.style.display = "block";
+
+
+
+}
+
+
+function toViewOrders() {
+    add_products_box.style.display = "none";
+
+    dashboard_box.style.display = "none";
+    view_products_box.style.display = "none";
+    upload_p_box.style.display = "none";
+    account_info_box.style.display = "none";
+    stock_out_box.style.display = "none";
+    view_orders_box.style.display = "block";
 
 
 
